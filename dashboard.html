@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Dashboard</title>
+</head>
+<body>
+	<h1>Welcome to Dashboard</h1>
+
+	<button id = "createDatabase" name= "createDatabase" onclick="createDatabase()">Create Database</button>
+	<button id = "addEmployee" name = "addEmployee" onclick="addEmployee">Add Employee</button>
+	<button id = "updateEmployee" name = "updateEmployee" onclick="updateEmployee">Update Employee</button>
+	<button id = "deleteEmployee" name = "deleteEmployee" onclick ="deleteEmployee">Delete Employee</button>
+
+
+
+</body>
+	<script>
+		function createDatabase() {
+		    // Perform the asynchronous operation (AJAX)
+		    var xhr = new XMLHttpRequest();
+		    xhr.open("POST", "createDatabase.php", true);
+		    xhr.onreadystatechange = function() {
+		        if (xhr.readyState === 4 && xhr.status === 200) {
+		            // Handle the response from the server (if needed)
+		            console.log(xhr.responseText);
+		        }
+		    };
+
+		    // Send the request
+		    xhr.send();
+		    alert("Creating Database")
+		}
+	</script>
+</html>
