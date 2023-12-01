@@ -50,7 +50,7 @@
 		);
 		
 		CREATE TABLE EmergencyContactEntry (
-			EmergencyEntryID INT PRIMARY KEY,
+			EmergencyEntryID INT PRIMARY KEY AUTO_INCREMENT,
 			NameEntryID INT NOT NULL,
 			Relationship VARCHAR(30) NOT NULL,
 			PhoneNumber INT NOT NULL,
@@ -58,7 +58,7 @@
 		);
 
 		CREATE TABLE Employee (
-			EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+			EmployeeID INT PRIMARY KEY,
 			NameEntryID INT NOT NULL,
 			LocationID INT NOT NULL,
 			Salary INT NOT NULL,
@@ -66,17 +66,14 @@
 			NIN INT NOT NULL,
 			DepartmentID INT NOT NULL,
 			ManagerID INT, -- Self-referencing foreign key
+			EmergencyEntryID INT NOT NULL,
 			FOREIGN KEY (NameEntryID) REFERENCES NameEntry(NameEntryID),
 			FOREIGN KEY (LocationID) REFERENCES Location(LocationID),
 			FOREIGN KEY (DepartmentID) REFERENCES Department(DepartmentID),
-			FOREIGN KEY (ManagerID) REFERENCES Employee(EmployeeID)
-		);
-		CREATE TABLE EmployeeEmergencyContact (
-			EmployeeID INT PRIMARY KEY,
-			EmergencyEntryID INT NOT NULL,
-			FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID),
+			FOREIGN KEY (ManagerID) REFERENCES Employee(EmployeeID),
 			FOREIGN KEY (EmergencyEntryID) REFERENCES EmergencyContactEntry(EmergencyEntryID)
 		);
+
 	
 		
 		CREATE TABLE HRstaff (
@@ -128,7 +125,6 @@
 		);
 		CREATE TABLE Driver (
 			EmployeeID INT PRIMARY KEY,
-			DepartmentID INT NOT NULL,
 			WorkingHours INT NOT NULL,
 			VehicleID INT,
 			RouteID VARCHAR(20),
@@ -218,7 +214,11 @@
 			FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
 		);
 		
-		
+		CREATE TABLE Auditing (
+			EmployeeID INT PRIMARY KEY,
+			FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+			
+		);
 		
 		
 		

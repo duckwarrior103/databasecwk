@@ -4,16 +4,111 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Dashboard</title>
+	<link rel="stylesheet" href="dashboard.css">
+
 </head>
 <body>
 	<h1>Welcome to Dashboard</h1>
 
 	<button id = "createDatabase" name= "createDatabase" onclick="createDatabase()">Create Database</button>
-	<button id = "addEmployee" name = "addEmployee" onclick="addEmployee">Add Employee</button>
-	<button id = "updateEmployee" name = "updateEmployee" onclick="updateEmployee">Update Employee</button>
-	<button id = "deleteEmployee" name = "deleteEmployee" onclick ="deleteEmployee">Delete Employee</button>
+	<a href="updateEmployee.html">Update Employee</a>
+	<a href="deleteEmployee.html">Delete Employee</a>
+
+	<button id="myBtn">Add Employee</button>
+
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+
+	<!-- Modal content -->
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<h2>Fill in employee details</h2>
+		<form id = "addEmployeeForm">
+			<label for = "employeeIDInput">Employee ID</label>
+			<input type ="number" id = "employeeIDInput" name = "employeeIDInput" required><br><br>
+			<label for = "employeeFirstNameInput">Employee First Name</label>
+			<input type ="text" id = "employeeFirstNameInput" name = "employeeFirstNameInput" required><br><br>
+			<label for = "employeeMiddleNameInput">Employee Middle Name</label>
+			<input type ="text" id = "employeeMiddleNameInput" name = "employeeMiddleNameInput"><br><br>
+			<label for = "employeeLastNameInput">Employee Last Name</label>
+			<input type ="text" id = "employeeLastNameInput" name = "employeeLastNameInput" required><br><br>
+			<label for = "employeePreferredNameInput">Employee Preferred Name</label>
+			<input type ="text" id = "employeePreferredNameInput" name = "employeePreferredNameInput"><br><br>
+			<label for = "employeeDOBInput">Employee Date of Birth (YYYY-MM-DD)</label>
+			<input type ="text" id = "employeeDOBInput" name = "employeeDOBInput"><br><br>
+			<label for = "employeeSalaryInput">Employee Salary</label>
+			<input type ="number" id = "employeeSalaryInput" name = "employeeSalaryInput" required><br><br>
+			<label for = "employeeNINInput">Employee NIN</label>
+			<input type ="number" id = "employeeNINInput" name = "employeeNINInput" required><br><br>
+			
+			<label for="employeeStreetName">Address Line 1</label><br><br>
+			<input type ="text" id = "employeeStreetName" name = "employeeStreetName" required><br><br>
+			<label for="employeePostCode">Post Code:</label><br><br>
+			<input type ="text" id = "employeePostCode" name = "employeePostCode" required><br><br>
+			<label for="employeeCity">City: </label><br><br>
+			<input type ="text" id = "employeeCity" name = "employeeCity" required><br><br>
+			<label for="employeeCountry">Country: </label><br><br>
+			<input type ="text" id = "employeeCountry" name = "employeeCountry" required><br><br>
+			
+			
+			<label for="employeeEmergencyContactFirstName">Emergency Contact First Name: </label><br><br>
+			<input type ="text" id = "employeeEmergencyContactFirstName" name = "employeeEmergencyContactFirstName" required><br><br>
+			<label for="employeeEmergencyMiddleName">Emergency Contact Middle Name: </label><br><br>
+			<input type ="text" id = "employeeEmergencyMiddleName" name = "employeeEmergencyMiddleName" ><br><br>
+			<label for="employeeEmergencyContactLastName">Emergency Contact Last Name: </label><br><br>
+			<input type ="text" id = "employeeEmergencyContactLastName" name = "employeeEmergencyContactLastName" required><br><br>
+			<label for="employeeEmergencyContactRelationship">Relationship: </label><br><br>
+			<input type ="text" id = "employeeEmergencyContactRelationship" name = "employeeEmergencyContactRelationship" required><br><br>
+			<label for="employeeEmergencyContactPhoneNumber">Phone Number:</label><br><br>
+			<input type ="number" id = "employeeEmergencyContactPhoneNumber" name = "employeeEmergencyContactPhoneNumber" required><br><br>
 
 
+
+			<label for="employeeCategory">Choose an employee category:</label><br><br>
+
+			<select name="employeeCategory" id="employeeCategory" onchange="showContent()">
+				<option value=1>Manager</option>
+				<option value=2>Driver</option>
+				<option value=3>Packager</option>
+				<option value=4>HR</option>
+			</select>
+			<br><br>
+
+<!-- 
+			<div id = "ManagerContent">
+				<label for = "managingIDnumber1">Managing Employee ID 1</label>
+				<input type ="number" id = "managingIDnumber1" name = "managingIDnumber1" required><br><br>
+				<button id ="addManagingEmployee">Add Managing Employee</button><br>
+			</div>
+			<div id = "DriverContent">
+				<label for="employeeWorkingHours">Working Hours:</label><br><br>
+				<input type ="number" id = "employeeWorkingHours" name = "employeeWorkingHours" required><br><br>
+				<label for="employeeVehicle">Vehicle ID</label><br><br>
+				<input type ="number" id = "employeeVehicle" name = "employeeVehicle" placeholder="None"><br><br>
+				<label for="employeeArea">Reporting Area</label><br><br>
+				<input type ="text" id = "employeeArea" name = "employeeArea" placeholder="Manchester" required>
+				<button id ="addArea">Add Area</button><br>
+				<div id = addArea><br>
+					<label for="newAreaName">New Area Name: </label><br><br>
+					<input type ="text" id = "newAreaName" name = "newAreaName" required><br><br>
+					<button id ="addAreaFr">Add</button>
+					<button id ="cancelAddArea">cancel</button>
+				</div>
+				<br><br>
+				<label for="employeeRoute">Route ID</label><br><br>
+				<input type ="number" id = "employeeRoute" name = "employeeRoute" placeholder="None"><br><br>
+			</div>
+			 -->
+			
+			<br>
+			<label for="employeeManagerID">Employee Manager ID:</label><br><br>
+			<input type ="number" id = "employeeManagerID" name = "employeeManagerID" required><br><br>
+
+			<button type="submit" onclick="addEmployee(event)">Submit</button>
+		</form>
+	</div>
+
+	</div>
 
 </body>
 	<script>
@@ -32,5 +127,65 @@
 		    xhr.send();
 		    alert("Creating Database")
 		}
+
+		function addEmployee(event) {
+			//event.preventDefault();
+            var formData = new FormData(document.getElementById("addEmployeeForm"));
+
+            // AJAX code to send data to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "addEmployee.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    console.log(xhr.responseText);
+                }
+            };
+            xhr.send(formData);
+
+			alert("Submitting form!");		    
+		}
+
+
+		// Get the modal
+		var modal = document.getElementById("myModal");
+
+		// Get the button that opens the modal
+		var btn = document.getElementById("myBtn");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+
+		// When the user clicks on the button, open the modal
+		btn.onclick = function() {
+		modal.style.display = "block";
+		}
+
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+		modal.style.display = "none";
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+		if (event.target == modal) {
+			modal.style.display = "none";
+		}
+		}
+
+		function showContent(){
+			var selectedOption = document.getElementById("employeeCategory").value;
+			var allContentDivs = document.querySelectorAll('[id$="Content"]');
+				allContentDivs.forEach(function (div) {
+					div.style.display = "none";
+				});
+            // Show the content div based on the selected option
+			console.log(selectedOption);
+            var selectedContentDiv = document.getElementById(selectedOption + "Content");
+            if (selectedContentDiv) {
+                selectedContentDiv.style.display = "block";
+            }
+		}
+
 	</script>
 </html>
