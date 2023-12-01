@@ -42,39 +42,39 @@
                 // Execute the statement
                 $stmt->execute();
 
-                $stmt = $conn->prepare("DELETE FROM NameEntry WHERE NameEntryID = :NameEntryID");
-                //Delete name
-                // Bind parameters
-                $stmt->bindParam(':NameEntryID', $NameEntryID, PDO::PARAM_INT);
+                // $stmt = $conn->prepare("DELETE FROM NameEntry WHERE NameEntryID = :NameEntryID");
+                // //Delete name
+                // // Bind parameters
+                // $stmt->bindParam(':NameEntryID', $NameEntryID, PDO::PARAM_INT);
         
-                // Execute the statement
-                $stmt->execute();
+                // // Execute the statement
+                // $stmt->execute();
 
-                $stmt = $conn->prepare("DELETE FROM `Location` WHERE LocationID = :LocationID");
-                //Delete name
-                // Bind parameters
-                $stmt->bindParam(':LocationID', $LocationID, PDO::PARAM_INT);
+                // $stmt = $conn->prepare("DELETE FROM `Location` WHERE LocationID = :LocationID");
+                // //Delete name
+                // // Bind parameters
+                // $stmt->bindParam(':LocationID', $LocationID, PDO::PARAM_INT);
         
-                // Execute the statement
-                $stmt->execute();
+                // // Execute the statement
+                // $stmt->execute();
 
                 
 
-                $stmt = $conn->prepare("DELETE FROM `EmergencyContactEntry` WHERE EmergencyEntryID = :EmergencyEntryID");
-                //Delete name
-                // Bind parameters
-                $stmt->bindParam(':EmergencyEntryID', $EmergencyEntryID, PDO::PARAM_INT);
+                // $stmt = $conn->prepare("DELETE FROM `EmergencyContactEntry` WHERE EmergencyEntryID = :EmergencyEntryID");
+                // //Delete name
+                // // Bind parameters
+                // $stmt->bindParam(':EmergencyEntryID', $EmergencyEntryID, PDO::PARAM_INT);
         
-                // Execute the statement
-                $stmt->execute();
+                // // Execute the statement
+                // $stmt->execute();
 
-                $stmt = $conn->prepare("DELETE FROM `NameEntry` WHERE NameEntryID = :emergencyNameEntryID");
-                //Delete name
-                // Bind parameters
-                $stmt->bindParam(':emergencyNameEntryID', $emergencyNameEntryID, PDO::PARAM_INT);
+                // $stmt = $conn->prepare("DELETE FROM `NameEntry` WHERE NameEntryID = :emergencyNameEntryID");
+                // //Delete name
+                // // Bind parameters
+                // $stmt->bindParam(':emergencyNameEntryID', $emergencyNameEntryID, PDO::PARAM_INT);
         
-                // Execute the statement
-                $stmt->execute();
+                // // Execute the statement
+                // $stmt->execute();
 
                 echo "Employee Deleted.";
 

@@ -8,11 +8,127 @@
 </head>
 <body>
     <h1>Update Employee</h1>
-    <form>
+    <label for = "employeeIDInput">Employee ID</label>
+    <input type ="number" id = "employeeIDInput" name = "employeeIDInput" required><br><br>
+    <form id="emplopyeeFirstNameForm">
+        <label for="employeeFirstNameInput">Employee First Name</label>
+        <input type="text" id="employeeFirstNameInput" name="employeeFirstNameInput" required>
+        <button type="submit" onclick="emplopyeeFirstNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeMiddleNameForm">
+        <label for="employeeMiddleNameInput">Employee Middle Name</label>
+        <input type="text" id="employeeMiddleNameInput" name="employeeMiddleNameInput">
+        <button type="submit" onclick="employeeMiddleNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeLastNameForm">
+        <label for="employeeLastNameInput">Employee Last Name</label>
+        <input type="text" id="employeeLastNameInput" name="employeeLastNameInput" required>
+        <button type="submit" onclick="employeeLastNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeePreferredNameForm">
+        <label for="employeePreferredNameInput">Employee Preferred Name</label>
+        <input type="text" id="employeePreferredNameInput" name="employeePreferredNameInput">
+        <button type="submit" onclick="employeePreferredNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeDOBForm">
+        <label for="employeeDOBInput">Employee Date of Birth (YYYY-MM-DD)</label>
+        <input type="text" id="employeeDOBInput" name="employeeDOBInput">
+        <button type="submit" onclick="employeeDOBForm(event)">Update</button><br><br>
         
+    </form>
 
+    <form id="employeeSalaryForm">
+        <label for="employeeSalaryInput">Employee Salary</label>
+        <input type="number" id="employeeSalaryInput" name="employeeSalaryInput" required>
+        <button type="submit" onclick="employeeSalaryForm(event)">Update</button><p id ="employeeSalaryFormerror"></p><br>
+    </form>
 
-    </form>    
+    <form id="employeeNINForm">
+        <label for="employeeNINInput">Employee NIN</label>
+        <input type="number" id="employeeNINInput" name="employeeNINInput" required>
+        <button type="submit" onclick="employeeNINForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeStreetNameForm">
+        <label for="employeeStreetName">Address Line 1</label>
+        <input type="text" id="employeeStreetName" name="employeeStreetName" required>
+        <button type="submit" onclick="employeeStreetNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeePostCodeForm">
+        <label for="employeePostCode">Post Code:</label>
+        <input type="text" id="employeePostCode" name="employeePostCode" required>
+        <button type="submit" onclick="employeePostCodeForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeCityForm">
+        <label for="employeeCity">City:</label>
+        <input type="text" id="employeeCity" name="employeeCity" required>
+        <button type="submit" onclick="employeeCityForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeCountryForm">
+        <label for="employeeCountry">Country:</label>
+        <input type="text" id="employeeCountry" name="employeeCountry" required>
+        <button type="submit" onclick="employeeCountryForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeEmergencyContactFirstNameForm">
+        <label for="employeeEmergencyContactFirstName">Emergency Contact First Name:</label>
+        <input type="text" id="employeeEmergencyContactFirstName" name="employeeEmergencyContactFirstName" required>
+        <button type="submit" onclick="employeeEmergencyContactFirstNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeEmergencyMiddleNameForm">
+        <label for="employeeEmergencyMiddleName">Emergency Contact Middle Name:</label>
+        <input type="text" id="employeeEmergencyMiddleName" name="employeeEmergencyMiddleName">
+        <button type="submit" onclick="employeeEmergencyMiddleNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeEmergencyContactLastNameForm">
+        <label for="employeeEmergencyContactLastName">Emergency Contact Last Name:</label>
+        <input type="text" id="employeeEmergencyContactLastName" name="employeeEmergencyContactLastName" required>
+        <button type="submit" onclick="employeeEmergencyContactLastNameForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeEmergencyContactRelationshipForm">
+        <label for="employeeEmergencyContactRelationship">Relationship:</label>
+        <input type="text" id="employeeEmergencyContactRelationship" name="employeeEmergencyContactRelationship" required>
+        <button type="submit" onclick="employeeEmergencyContactRelationshipForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeEmergencyContactPhoneNumberForm">
+        <label for="employeeEmergencyContactPhoneNumber">Phone Number:</label>
+        <input type="number" id="employeeEmergencyContactPhoneNumber" name="employeeEmergencyContactPhoneNumber" required>
+        <button type="submit" onclick="employeeEmergencyContactPhoneNumberForm(event)">Update</button><p id ="employeeEmergencyContactPhoneNumberFormerror"></p><br>
+    </form>
+
+    <form id="employeeCategoryForm">
+        <label for="employeeCategory">Choose an employee category:</label>
+        <select name="employeeCategory" id="employeeCategory" onchange="showContent()">
+            <option value="1">Manager</option>
+            <option value="2">Driver</option>
+            <option value="3">Packager</option>
+            <option value="4">HR</option>
+        </select>
+        <button type="submit" onclick="employeeCategoryForm(event)">Update</button><br><br>
+    </form>
+
+    <form id="employeeManagerIDForm">
+        <label for="employeeManagerID">Employee Manager ID:</label>
+        <input type="number" id="employeeManagerID" name="employeeManagerID" required>
+        <button type="submit" onclick="employeeManagerIDForm(event)">Update</button><br><br>
+    </form>
+    <h2 id = "error" style="color: red;"></h2>
+
+        
+        
+      
 
 </body>
+    <script src="updateEmployee.js" defer></script>
 </html>

@@ -196,7 +196,7 @@
                 // employeeID: same value 
                 // working hours: 
                 // others: NULL 
-
+            echo "success!";
         } catch (PDOException $e) {
             echo "Error adding employee: " . $e->getMessage();
         }

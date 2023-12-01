@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered Search for Employee</title>
+</head>
+<body>
+
+    <form id = "searchForm" method = "post" action="searchEmployee.php">
+        
+        <button type ="submit">Search</button>
+        <p id ="error"></p>
+    </form>
+
+    
+</body>
+<script>
+    function search() {
+        event.preventDefault();
+            var formData = new FormData(document.getElementById("searchForm"));
+            var error = document.getElementById("error");
+            // AJAX code to send data to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "searchEmployee.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    console.log(xhr.responseText);
+                    error.innerHTML = xhr.responseText
+                }
+            };
+            xhr.send(formData);
+        alert("searching");
+
+
+    }
+
+</script>
+</html>
