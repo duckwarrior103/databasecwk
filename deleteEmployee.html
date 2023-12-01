@@ -9,12 +9,34 @@
 <body>
     <h1>Delete Employee</h1>
 
-    <form>
+    <form id ="searchForm">
         <label for = "employeeSearchBox">Enter Employee ID to delete</label>
-        <input type = "number"></input>
-        <input type = "submit" value ="delete">
+        <input type = "number" id = "employeeID" name = "employeeID"></input>
+        <button onclick="deleteFunction(event)">delete</button>
     </form>
-    
+    <h2 id = "error" style="color: red;"></h2>
 
 </body>
+    <script>
+        function deleteFunction(event) {
+			event.preventDefault();
+            var formData = new FormData(document.getElementById("searchForm"));
+            var error = document.getElementById("error");
+            // AJAX code to send data to the server
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "deleteEmployee.php", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    // Handle the response from the server
+                    console.log(xhr.responseText);
+                    error.innerHTML = xhr.responseText
+                }
+            };
+            xhr.send(formData);
+
+			alert("Deleting Employee");		    
+		}
+
+
+    </script>
 </html>

@@ -89,7 +89,7 @@
             // Bind parameters
             $stmt->bindParam(':lastInsertEmergencyContactNameEntryId', $lastInsertEmergencyContactNameEntryId, PDO::PARAM_INT);
             $stmt->bindParam(':relationship', $relationship, PDO::PARAM_STR);
-            $stmt->bindParam(':phoneNumber', $phoneNumber, PDO::PARAM_INT);
+            $stmt->bindParam(':phoneNumber', $phoneNumber, PDO::PARAM_STR);
         
             // Execute the statement
             $stmt->execute();

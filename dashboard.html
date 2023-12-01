@@ -105,6 +105,7 @@
 			<input type ="number" id = "employeeManagerID" name = "employeeManagerID" required><br><br>
 
 			<button type="submit" onclick="addEmployee(event)">Submit</button>
+			<h2 id = "error" style="color: red;"></h2>
 		</form>
 	</div>
 
@@ -129,7 +130,7 @@
 		}
 
 		function addEmployee(event) {
-			//event.preventDefault();
+			event.preventDefault();
             var formData = new FormData(document.getElementById("addEmployeeForm"));
 
             // AJAX code to send data to the server
@@ -139,6 +140,7 @@
                 if (xhr.readyState === 4 && xhr.status === 200) {
                     // Handle the response from the server
                     console.log(xhr.responseText);
+					document.getElementById("error").innerHTML = xhr.responseText;
                 }
             };
             xhr.send(formData);

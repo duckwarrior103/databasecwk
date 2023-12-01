@@ -53,7 +53,7 @@
 			EmergencyEntryID INT PRIMARY KEY AUTO_INCREMENT,
 			NameEntryID INT NOT NULL,
 			Relationship VARCHAR(30) NOT NULL,
-			PhoneNumber INT NOT NULL,
+			PhoneNumber VARCHAR(20) NOT NULL,
 			FOREIGN KEY (NameEntryID) REFERENCES NameEntry(NameEntryID)
 		);
 
