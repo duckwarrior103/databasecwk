@@ -42,9 +42,69 @@
         echo "<h1>Employee Results</h1>";
         // Process the results as needed
         foreach ($results as $row) {
+            // employee first name, last name relationship, name of manager 
+            $NameEntryID = $row['NameEntryID'];
+            $stmt = $conn->prepare("SELECT * FROM NameEntry WHERE NameEntryID = :NameEntryID");
+
+            // Bind the parameter
+            $stmt->bindParam(':NameEntryID', $NameEntryID, PDO::PARAM_INT);
+
+            // Execute the query
+            $stmt->execute();
+
+            // Fetch the result as an associative array
+            $EmployeeNameresult = $stmt->fetch(PDO::FETCH_ASSOC);
+            // get department name 
+            $DepartmentID = $row['DepartmentID'];
+            $stmt = $conn->prepare("SELECT * FROM Department WHERE DepartmentID = :DepartmentID");
+
+            // Bind the parameter
+            $stmt->bindParam(':DepartmentID', $DepartmentID, PDO::PARAM_INT);
+
+            // Execute the query
+            $stmt->execute();
+
+            // Fetch the result as an associative array
+            $DepartmentIDResult = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $EmergencyEntryID = $row['EmergencyEntryID'];
+            $stmt = $conn->prepare("SELECT * FROM EmergencyContactEntry WHERE EmergencyEntryID = :EmergencyEntryID");
+
+            // Bind the parameter
+            $stmt->bindParam(':EmergencyEntryID', $EmergencyEntryID, PDO::PARAM_INT);
+
+            // Execute the query
+            $stmt->execute();
+            $EmergencyEntryResult = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            $ManagerID = $row['ManagerID'];
+            $stmt = $conn->prepare("SELECT * FROM Employee WHERE EmployeeID = :ManagerID");
+
+            // Bind the parameter
+            $stmt->bindParam(':ManagerID', $ManagerID, PDO::PARAM_INT);
+
+            // Execute the query
+            $stmt->execute();
+            $ManagerResult = $stmt->fetch(PDO::FETCH_ASSOC);
+            $ManagerNameEntryID = $ManagerResult['NameEntryID'];
+            $stmt = $conn->prepare("SELECT * FROM NameEntry WHERE NameEntryID = :ManagerNameEntryID");
+
+            // Bind the parameter
+            $stmt->bindParam(':ManagerNameEntryID', $ManagerNameEntryID, PDO::PARAM_INT);
+
+            // Execute the query
+            $stmt->execute();
+
+            // Fetch the result as an associative array
+            $ManagerNameResult = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
             echo "<ul>";
-            echo "<li>ID: " . $row['EmployeeID'] . "</li>";
-            echo "<li>Salary: " . $row['Salary'] . "</li>";
+            echo "<li>Employee Name: " . $EmployeeNameresult['FirstName'] . " " . $EmployeeNameresult['LastName'] . "</li>";
+            echo "<li>Department: " . $DepartmentIDResult['Name'] . "</li>";
+            echo "<li>Emergency Contact Relationship: " . $EmergencyEntryResult['Relationship'] . "</li>";
+            echo "<li>Manager Name: " . $ManagerNameResult['FirstName'] . " " . $ManagerNameResult['LastName'] . "</li>";
             echo "</ul>";
 
 
