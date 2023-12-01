@@ -152,7 +152,7 @@
             } 
             else {die( "Need to input DOB.");} 
             if (isset($_POST['employeeNINInput']) && $_POST['employeeNINInput'] != NULL) {
-                $NIN = filter_var($_POST['employeeNINInput'], FILTER_VALIDATE_INT);
+                $NIN = filter_var($_POST['employeeNINInput'], FILTER_SANITIZE_STRING);
             } 
             else {die( "Need to input NIN.");} 
             
@@ -180,7 +180,7 @@
             $stmt->bindParam(':locationID', $lastInsertLocationId, PDO::PARAM_INT);
             $stmt->bindParam(':salary', $salary, PDO::PARAM_INT);
             $stmt->bindParam(':dateOfBirth', $dateOfBirth, PDO::PARAM_STR);
-            $stmt->bindParam(':NIN', $NIN, PDO::PARAM_INT);
+            $stmt->bindParam(':NIN', $NIN, PDO::PARAM_STR);
             $stmt->bindParam(':departmentID', $departmentID, PDO::PARAM_INT);
             $stmt->bindParam(':managerID', $managerID, PDO::PARAM_INT);
             $stmt->bindParam(':emergencyEntryID', $lastInsertEmergencyContactId, PDO::PARAM_INT);

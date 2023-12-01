@@ -63,7 +63,7 @@
 			LocationID INT NOT NULL,
 			Salary INT NOT NULL,
 			DateOfBirth DATE NOT NULL,
-			NIN INT NOT NULL,
+			NIN VARCHAR(20) NOT NULL,
 			DepartmentID INT NOT NULL,
 			ManagerID INT, -- Self-referencing foreign key
 			EmergencyEntryID INT NOT NULL,
