@@ -14,8 +14,18 @@
     $emergencyContactTable = 'EmergencyContactEntry';
 
     // Your values for the conditions
-    $relationshipValue = 'awefeaw';
-    $departmentIDValue = 1;
+    if (isset($_POST['employeeCategory']) && $_POST['employeeCategory']!= NULL){
+        $departmentIDValue = $_POST['employeeCategory'];
+    }
+    else{
+        die("Please select Department/Employee Category.");
+    }
+    if (isset($_POST['employeeEmergencyContactRelationship']) && $_POST['employeeEmergencyContactRelationship']!= NULL){
+        $relationshipValue = $_POST['employeeEmergencyContactRelationship'];
+    }
+    else{
+        die("Please select emergency contact relationship value");
+    }
 
     try {
         // Construct the SQL query with placeholders
@@ -40,6 +50,7 @@
         // Fetch the results
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         echo "<h1>Employee Results</h1>";
+        $number = 1;
         // Process the results as needed
         foreach ($results as $row) {
             // employee first name, last name relationship, name of manager 
@@ -86,7 +97,9 @@
             // Execute the query
             $stmt->execute();
             $ManagerResult = $stmt->fetch(PDO::FETCH_ASSOC);
-            $ManagerNameEntryID = $ManagerResult['NameEntryID'];
+            if ($ManagerResult){
+                $ManagerNameEntryID = $ManagerResult['NameEntryID'];
+            }   
             $stmt = $conn->prepare("SELECT * FROM NameEntry WHERE NameEntryID = :ManagerNameEntryID");
 
             // Bind the parameter
@@ -99,14 +112,14 @@
             $ManagerNameResult = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-
+            echo "<h4>Result " . $number . "</h2>";
             echo "<ul>";
             echo "<li>Employee Name: " . $EmployeeNameresult['FirstName'] . " " . $EmployeeNameresult['LastName'] . "</li>";
             echo "<li>Department: " . $DepartmentIDResult['Name'] . "</li>";
             echo "<li>Emergency Contact Relationship: " . $EmergencyEntryResult['Relationship'] . "</li>";
             echo "<li>Manager Name: " . $ManagerNameResult['FirstName'] . " " . $ManagerNameResult['LastName'] . "</li>";
             echo "</ul>";
-
+            $number += 1; 
 
 
 

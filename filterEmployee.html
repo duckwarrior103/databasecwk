@@ -7,9 +7,17 @@
     <title>Filtered Search for Employee</title>
 </head>
 <body>
-
+    <h1>Pick Search Parameters</h1>
     <form id = "searchForm" method = "post" action="searchEmployee.php">
-        
+        <label for="employeeCategory">Choose an employee category:</label>
+        <select name="employeeCategory" id="employeeCategory" onchange="showContent()">
+            <option value=1>Manager</option>
+            <option value=2>Driver</option>
+            <option value=3>Packager</option>
+            <option value=4>HR</option>
+        </select>
+        <label for="employeeEmergencyContactRelationship">Relationship: </label>
+        <input type ="text" id = "employeeEmergencyContactRelationship" name = "employeeEmergencyContactRelationship" required><br><br>
         <button type ="submit">Search</button>
         <p id ="error"></p>
     </form>
